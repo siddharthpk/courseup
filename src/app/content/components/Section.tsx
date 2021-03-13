@@ -13,6 +13,9 @@ import {
   PopoverCloseButton,
   PopoverContent,
   PopoverTrigger,
+  Stat,
+  StatLabel,
+  StatNumber,
 } from '@chakra-ui/react';
 
 import { MeetingTimes, Seat } from '../../../fetchers';
@@ -68,42 +71,47 @@ export function SectionInfo({
   const isCSC = additionalNotes?.indexOf('Reserved for students in a Computer Science program') !== -1;
 
   return (
-    <Box as="section" bg="white" color="black" my="5">
-      <Flex my="2" alignItems="center">
-        <Heading mr="5" size="lg" as="h2" whiteSpace="pre">
-          {sectionCode}
-        </Heading>
-        <Heading size="lg" as="h3" color="gray">
-          {crn}
-        </Heading>
-        <Box mx="5">
-          <Popover>
-            <PopoverTrigger>
-              <Badge colorScheme="green" mx="1">
-                {instructionalMethod}
+    <Box as="section" bg="white" color="black" my="5" boxShadow="lg" p="5" borderRadius="xl">
+      <Flex my="2" alignItems="center" p="md" justifyContent="space-between">
+        <Flex>
+          <Heading size="lg" as="h2" whiteSpace="pre">
+            {sectionCode}
+          </Heading>
+          <Flex mx="5" alignItems="center">
+            <Popover>
+              <PopoverTrigger>
+                <Badge colorScheme="green" mx="1">
+                  {instructionalMethod}
+                </Badge>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverBody>This means this section takes place online.</PopoverBody>
+              </PopoverContent>
+            </Popover>
+            {isASYNC && (
+              <Badge colorScheme="cyan" mx="1">
+                Asynchronous
               </Badge>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-              <PopoverCloseButton />
-              <PopoverBody>This means this section takes place online.</PopoverBody>
-            </PopoverContent>
-          </Popover>
-          {isASYNC && (
-            <Badge colorScheme="cyan" mx="1">
-              Asynchronous
-            </Badge>
-          )}
-          {isSENG && (
-            <Badge colorScheme="orange" mx="1">
-              SENG ONLY
-            </Badge>
-          )}
-          {isCSC && (
-            <Badge colorScheme="yellow" mx="1">
-              CSC ONLY
-            </Badge>
-          )}
+            )}
+            {isSENG && (
+              <Badge colorScheme="orange" mx="1">
+                SENG ONLY
+              </Badge>
+            )}
+            {isCSC && (
+              <Badge colorScheme="yellow" mx="1">
+                CSC ONLY
+              </Badge>
+            )}
+          </Flex>
+        </Flex>
+        <Box>
+          <Stat>
+            <StatLabel fontSize="sm">CRN</StatLabel>
+            <StatNumber fontSize="md">{crn}</StatNumber>
+          </Stat>
         </Box>
       </Flex>
       <Box>
