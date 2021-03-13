@@ -60,7 +60,7 @@ export function SectionsContainer({ term, subject, code }: SectionsContainerProp
     <Box>
       {lectures && lectures.length > 0 && (
         <>
-          <Heading size="2xl" color="black" my="2">
+          <Heading size="xl" color="black" my="2">
             Lectures
           </Heading>
           <Sections sections={lectures} seats={seats} />
@@ -69,7 +69,7 @@ export function SectionsContainer({ term, subject, code }: SectionsContainerProp
       {labs && labs.length > 0 && (
         <>
           <Divider />
-          <Heading size="2xl" color="black" my="2">
+          <Heading size="xl" color="black" my="2">
             Labs
           </Heading>
           <Sections sections={labs} seats={seats} />
@@ -78,7 +78,7 @@ export function SectionsContainer({ term, subject, code }: SectionsContainerProp
       {tutorials && tutorials.length > 0 && (
         <>
           <Divider />
-          <Heading size="2xl" color="black" my="2">
+          <Heading size="xl" color="black" my="2">
             Tutorials
           </Heading>
           <Sections sections={tutorials} seats={seats} />
