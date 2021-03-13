@@ -40,10 +40,10 @@ export function Card({ subject, title, code, selected }: PropsWithChildren<CardP
     >
       <Flex direction="row" alignItems="center" justifyContent="space-between">
         <VStack alignItems="start">
-          <Text fontSize="sm" color="black" fontWeight="bold">
+          <Text fontSize="md" color="black" fontWeight="bold">
             {subject} {code}
           </Text>
-          <Text fontSize="xs" color="black" fontWeight="normal">
+          <Text fontSize="sm" color="black" fontWeight="normal">
             {title}
           </Text>
         </VStack>
